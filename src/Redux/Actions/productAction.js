@@ -25,9 +25,12 @@ export const getProductDetail = (id) => async (dispatch) => {
         console.log("Se obtendra el detalle del producto con id: " + id);
         let response = (await axios.get(`/products/${id}`)).data;
         console.log("[ getProductDetail ] Se recibio respuesta del backend");
-        console.log("[ getProductDetail ] response: " + response.title);
+        response.productDetail.images = response.listUrl;
+        console.log("[ getProductDetail ] response: " + response.productDetail.title);
+        console.log("[ getProductDetail ] response: " + response.productDetail.stock);
+        console.log("[ getProductDetail ] response: " + response.productDetail.images.length);
 
-        dispatch(getProductDetailReducer(response));
+        dispatch(getProductDetailReducer(response.productDetail));
 
     } catch (error) {
         console.log("[ getProductDetail ] Excepcion: error.message: " + error.message);
