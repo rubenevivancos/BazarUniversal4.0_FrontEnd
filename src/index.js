@@ -10,7 +10,7 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-axios.defaults.baseURL='http://localhost:3001';
+axios.defaults.baseURL='https://bazar-universal4-0-back-end.vercel.app';
 
 
 // Crea un root utilizando createRoot
